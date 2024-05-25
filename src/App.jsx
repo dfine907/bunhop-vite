@@ -1,33 +1,32 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+import photo1 from './assets/basketbun.jpeg'
+import photo2 from './assets/lopbun.jpeg'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentPhoto, setCurrentPhoto] = useState(photo1)
+
+  const handlePhotoSwitch = () => {
+    setCurrentPhoto((prevPhoto) =>
+      prevPhoto === photo1 ? photo2 : photo1
+    )
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="heading">
+        <h1>Cute Buns</h1>
       </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <button onClick={handlePhotoSwitch}>Switch Photo</button>
+        <img
+          src={currentPhoto}
+          alt="Switchable"
+          className="bunphoto"
+        />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h6>Made with love by Dina 2024© </h6>
     </>
   )
 }
