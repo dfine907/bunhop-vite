@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import './App.css'
 
-import photo1 from './assets/basketbun.jpeg'
-import photo2 from './assets/lopbun.jpeg'
+import bunphoto1 from './assets/basketbun.jpeg'
+import bunphoto2 from './assets/lopbun.jpeg'
 
 function App() {
-  const [currentPhoto, setCurrentPhoto] = useState(photo1)
+  const [currentPhoto, setCurrentPhoto] = useState(bunphoto1)
 
   const handlePhotoSwitch = () => {
     setCurrentPhoto((prevPhoto) =>
-      prevPhoto === photo1 ? photo2 : photo1
+      prevPhoto === bunphoto1 ? bunphoto2 : bunphoto1
     )
   }
 
@@ -22,7 +22,7 @@ function App() {
         <button onClick={handlePhotoSwitch}>Switch Photo</button>
         <img
           src={currentPhoto}
-          alt="Switchable"
+          alt="switchable-bunny"
           className="bunphoto"
         />
       </div>
